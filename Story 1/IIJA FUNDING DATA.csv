@@ -1,4 +1,4 @@
-﻿State_Teritory_Tribal Nation,Total Population,2020_Population ,2020_Election_Winner
+﻿State_Teritory_Tribal_Nation,Allocation,Population ,Election_Winner
 ALABAMA,3,5024279,Republican
 ALASKA,3.7,733391,Republican
 AMERICAN SAMOA,0.0686,49710,No electoral Vote
@@ -47,10 +47,10 @@ SOUTH CAROLINA,2.3,5118425,Republican
 SOUTH DAKOTA,1.3,886667,Republican
 TENNESSEE,3.7,6910840,Republican
 TEXAS,14.2,29145505,Republican
-TRIBAL COMMUNITIES,3,-,No electoral Vote
+TRIBAL COMMUNITIES,3,9600000,No electoral Vote
 US VIRGIN ISLANDS,0.1483,87146,No electoral Vote
 UTAH,1.8,3271616,Republican
-VERMONT,0.8521," 643,077",Democrat
+VERMONT,0.8521, 643077,Democrat
 VIRGINIA,4.5,8631393,Republican
 WASHINGTON,4,7705281,Democrat
 WEST VIRGINIA,2,1793716,Republican
