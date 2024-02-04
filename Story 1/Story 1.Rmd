@@ -7,31 +7,161 @@ output: openintro::lab_report
 
 ## Introduction
 
-According to [The US Department of Transportation]("https://www.phmsa.dot.gov/legislative-mandates/bipartisan-infrastructure-law-bil-infrastructure-investment-and-jobs-act-iija#:~:text=The%20Infrastructure%20Investment%20and%20Jobs,%22new%22%20investments%20and%20programs."), The Infrastructure Investment and Jobs Act (IIJA) signed into law by President Biden on November 15, 2021, authorizes $1.2 trillion for transportation and infrastructure spending with $550 billion of that figure going toward "new" investments and programs.
-
 The purpose of this data visualization analysis is to examine the allocation of funds across States and Territories in the United States. We will assess whether the allocation is equitable based on population and explore any potential biases favoring the political interests of the Biden administration.
 
 
 
 ## Data Analysis
 
+Import Libraries for this analysis
 
-##Conclusion
-
-```{r load-packages, message=FALSE}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
-library(openintro)
+library(knitr)
+library(kableExtra)
 ```
 
-### Exercise 1
+### Data sources
 
-Insert any text here.
+- Present allocation of the IIJA by State and Territory:
 
-```{r code-chunk-label}
-# Insert code for Exercise 1 here
+- [List of U.S states_and_territories_by_population]("https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_population") as of April 2020 Census
+
+- [U.S. 2020 Presidential Election Results Per State]("https://docs.google.com/spreadsheets/d/1D-edaVHTnZNhVU840EPUhz3Cgd7m39Urx7HM8Pq6Pus/edit#gid=29622862")
+
+I merge the files in Excel and upload the data on GitHub.
+
+
+### Data Exploration
+
+Import the data from GitHub
+
+```{r}
+allocation_df <- as.data.frame(read.csv("https://raw.githubusercontent.com/Kossi-Akplaka/Data608-Visualization/main/Story%201/IIJA%20FUNDING%20DATA.csv"))
+kable(head(allocation_df,5), "html") %>%
+  kable_styling(bootstrap_options = "striped", full_width = T)
 ```
 
-### Exercise 2
 
-...
+Let's visualize the data to examine whether the allocation is equitable based on population.
+
+### Population vs. Allocation Comparison
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+allocation_df$Population_millions <- as.numeric(allocation_df$Population) / 1e6
+
+ggplot(allocation_df, aes(x = Population_millions , y = Allocation )) +
+  geom_point(color = 'Purple') +
+  labs(title = "Population vs. Allocation Comparison",
+       x = "Population (millions)",
+       y = "Allocation (Billions)") +
+  theme_minimal()
+```
+
+Based on the above scatter plot, there is a general trend of proportionality between the population size and allocation of IIJA funds for states and territories. However, notable deviations from this trend are observed, with certain states or territories receiving allocations that either exceed or fall short of what would be expected based solely on their population size.
+
+These variations suggest that factors beyond population alone may influence the allocation of IIJA funds
+
+### Per Capita Allocation
+
+Let's take a closer look on the per capita allocation of funds for each State and Territory.
+
+```{r message=FALSE, warning=FALSE}
+# Calculate the fund allocation per capita
+allocation_df$Per_capita <- round((as.numeric(allocation_df$Allocation)*1e9)/(as.numeric(allocation_df$Population)))
+
+head(allocation_df$Per_capita)
+```
+
+Plot the Per Capita Allocation
+```{r warning=FALSE}
+ggplot(allocation_df, aes(x = State_Teritory_Tribal_Nation, y = Per_capita)) +
+  geom_point(color = 'purple') +
+  labs(title = "Allocation Per Capita Scatter Plot",
+       x = "State / Territory / Tribal Nation",
+       y = "Per Capita Allocation") +
+  theme_minimal() +
+  theme(axis.text.x = element_blank())
+```
+
+Ideally, Per Capita Allocation should be relatively consistent across different states and territories to ensure equitable distribution of resources.
+
+Let's explore the other factors that can lead to variations in Per Capita Allocation
+
+### Biases favoring the political interests of the Biden administration
+
+Let's create a scatter plot comparing Per Capita Allocation for states won by Republican and Democrat candidates in the 2020 election
+
+```{r warning=FALSE}
+State_Allocation <- allocation_df %>% 
+  filter(Election_Winner == 'Republican'| Election_Winner == 'Democrat')
+
+ggplot(State_Allocation, aes(x = State_Teritory_Tribal_Nation, y = Per_capita, color = Election_Winner)) +
+  scale_color_manual(values = c("Republican" = "red", "Democrat" = "blue"))+
+  geom_point() +
+  labs(title = "Allocation Per Capita Scatter Plot",
+       x = "State",
+       y = "Per Capita Allocation") +
+  geom_hline(yintercept = 1000, linetype = "dotted", color = "black")+
+  theme_minimal() +
+  theme(axis.text.x = element_blank())
+```
+
+This visualization indicates that the majority of states have a Per Capita Allocation falling below $1000. Among the 9 states with Per Capita Allocation exceeding 1000 dollars, 6 of them were won by Republican in 2020. This observation suggests that there is no apparent evidence supporting the presence of bias favoring the political interests of the Biden administration in the allocation process.
+
+### Summary Statistics
+
+Let's create a table of the minimum, maximum, and average Per Capita Allocation for Republican and Democrat states.
+
+```{r}
+State_Allocation %>%
+  group_by(Election_Winner) %>%
+  summarise(
+    Min_PerCapita = min(Per_capita),
+    Max_PerCapita = max(Per_capita),
+    Avg_PerCapita = round(mean(Per_capita))
+  ) %>%
+  bind_rows(
+    State_Allocation %>%
+      summarise(
+        Election_Winner = "Overall",
+        Min_PerCapita = min(Per_capita),
+        Max_PerCapita = max(Per_capita),
+        Avg_PerCapita = round(mean(Per_capita))
+      )
+  ) %>% 
+  kable("html") %>%
+  kable_styling(bootstrap_options = "striped", full_width = T)
+```
+
+The table clearly illustrates that, on average, Republican states received a higher Per Capita Allocation compared to Democrat states. This observation emphasizes that there is no apparent bias of Biden administration in the allocation process.
+
+
+Create a table that includes counts for both the number of states above and below the average Per Capita Allocation
+
+```{r}
+# Average Per capita allocation
+average_allocation <- mean(State_Allocation$Per_capita)
+# summary table
+State_Allocation %>%
+  mutate(Above_Avg = Per_capita > average_allocation) %>%
+  group_by(Election_Winner) %>%
+  summarise(
+    Total_Count = n(),
+    Above_Avg_Count = sum(Above_Avg),
+    Below_Avg_Count = Total_Count - Above_Avg_Count
+  ) %>% 
+  select (Election_Winner, Above_Avg_Count, Below_Avg_Count) %>% 
+  kable("html") %>%
+  kable_styling(bootstrap_options = "striped", full_width = T)
+```
+
+## Conclusion
+
+The purpose of this story is to assess whether the allocation is equitable based on population and explore any potential biases favoring the political interests of the Biden administration.
+
+- Although the biggest factors for allocation is the population, there are others factors influencing funds allocations.  This led to variation in the per capita Allocation.
+
+- There is no evidence of potential biases favoring the political interests of the Biden administration. In contrary, states won by Republican party in 2020 saw a higher allocation on average.
+
 
