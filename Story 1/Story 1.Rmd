@@ -1,0 +1,37 @@
+---
+title: "Infrastructure Investment & Jobs Act Funding Allocation"
+author: "Kossi Akplaka"
+date: "`r Sys.Date()`"
+output: openintro::lab_report
+---
+
+## Introduction
+
+According to [The US Department of Transportation]("https://www.phmsa.dot.gov/legislative-mandates/bipartisan-infrastructure-law-bil-infrastructure-investment-and-jobs-act-iija#:~:text=The%20Infrastructure%20Investment%20and%20Jobs,%22new%22%20investments%20and%20programs."), The Infrastructure Investment and Jobs Act (IIJA) signed into law by President Biden on November 15, 2021, authorizes $1.2 trillion for transportation and infrastructure spending with $550 billion of that figure going toward "new" investments and programs.
+
+The purpose of this data visualization analysis is to examine the allocation of funds across States and Territories in the United States. We will assess whether the allocation is equitable based on population and explore any potential biases favoring the political interests of the Biden administration.
+
+
+
+## Data Analysis
+
+
+##Conclusion
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(openintro)
+```
+
+### Exercise 1
+
+Insert any text here.
+
+```{r code-chunk-label}
+# Insert code for Exercise 1 here
+```
+
+### Exercise 2
+
+...
+
