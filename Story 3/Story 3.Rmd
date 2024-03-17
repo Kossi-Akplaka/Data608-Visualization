@@ -1,0 +1,188 @@
+---
+title: "Story 3"
+author: "Kossi Akplaka"
+date: "`r Sys.Date()`"
+output: openintro::lab_report
+---
+
+In this story, I'll use CDC API to retrieve firearm mortality data for each state per 100,000 persons. Then, after categorizing gun control laws per states, we'll create a 5-point Likert scale categorizing gun control laws from most lax to strictest. 
+
+The goal of the story is to answer if stricter firearm control laws help reduce firearm mortality
+
+## Import libraries
+
+```{r load-packages, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(httr)
+library(jsonlite)
+library(ggplot2)
+library(tidyr)
+library(usmap)
+library(gridExtra)
+library(kableExtra)
+```
+
+## Load the data
+
+Let's access the firearm mortality data from the CDC using an available API (https://open.cdc.gov/apis.html)
+
+```{r}
+url <- "https://data.cdc.gov/resource/489q-934x.json"
+response <- GET(url)
+data <- content(response, as = "text")
+df <- as.data.frame(fromJSON(data))
+
+# View data
+kable(head(df), "simple")
+```
+
+## Data Tidying 
+
+Let's filter the data to only include injury per firearm in 2023 Quarter 1, 12 months ending quarter, Age adjusted
+
+```{r}
+# Apply the filter to the data
+firearm_data <- df %>% 
+    filter(cause_of_death == 'Firearm-related injury' &
+         year_and_quarter == '2023 Q1' &
+         time_period == '12 months ending with quarter' &
+         rate_type == "Age-adjusted")
+
+#Select only the states columns
+firearm_df <- firearm_data[1, 9:59]
+
+# Reformat the data
+firearm_df <- firearm_df %>%
+  gather(key = "state", value = "firearm_mortality_rate", starts_with("rate_")) %>%
+  mutate(firearm_mortality_rate = as.numeric(firearm_mortality_rate),
+         state = gsub("rate_", "", state)) %>% 
+  filter(state != "district_of_columbia") %>% 
+  arrange(state)
+
+# View first 5 elements of the data
+head(firearm_df)
+```
+
+Now, let's create a 5 point Likert scale categorizing gun control laws from loosest to strictest and assign each state to the most appropriate Likert bins
+
+- Reference: "https://wisevoter.com/state-rankings/states-with-strictest-gun-laws/#"
+
+```{r}
+# Categories for  guns policies per states
+likert_values <-c("Very loose", "Very loose","Very loose","Very loose","Very Strict",
+                  "Strict","Very Strict","Strict","Moderate","Very loose",
+                  "Very Strict","Very loose","Very Strict","Loose","Very loose",
+                  "Very loose","Very loose","Very loose","Very loose","Very Strict",
+                  "Very Strict","Moderate","Moderate","Very loose","Very loose","Very loose",
+                  "Moderate","Moderate","Very loose","Very Strict","Moderate","Very Strict",
+                  "Moderate","Very loose","Loose","Very loose","Strict","Strict",
+                  "Strict","Very loose","Very loose","Very loose","Very loose",
+                  "Very loose","Moderate","Strict","Strict","Very loose","Moderate","Very loose")
+
+# Assuming your data frame is named df_ordered
+firearm_df$gun_law <- likert_values
+
+# Change the name of the column
+
+firearm_df$state <- c("Alabama", "Alaska", "Arizona", "Arkansas", "California", 
+            "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", 
+            "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", 
+            "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", 
+            "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", 
+            "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", 
+            "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", 
+            "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", 
+            "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", 
+            "Washington", "West Virginia", "Wisconsin", "Wyoming")
+
+# Print the data 
+head(firearm_df)
+
+```
+
+## Data Visualization
+
+### Correlation between firearm policy and mortality rate
+
+Let's calculate the correlation between strict firearm policy and the mortality rate.
+
+```{r}
+# Calculate correlation coefficient
+correlation <- cor(firearm_df$firearm_mortality_rate, as.numeric(factor(firearm_df$gun_law, levels = c("Very loose", "Loose", "Moderate", "Strict", "Very Strict"))))
+
+correlation
+```
+
+The correlation coefficient of -0.6656803 indicates a strong negative correlation between firearm mortality rates and the strict gun control laws. 
+This suggests that as gun control laws become stricter, firearm mortality rates tend to decrease. 
+
+
+### Create a heat map 
+
+Let's visualize the relationship between gun control laws and firearm mortality rate
+
+```{r}
+# Plot US map for firearm mortality rates
+plot_firearm <- plot_usmap(data = firearm_df, values = "firearm_mortality_rate", color = "orange", labels = FALSE) + 
+  scale_fill_continuous(low = "white", high = "orange", name = "Firearm Mortality Rate", label = scales::comma) + 
+  theme(legend.position = "bottom", panel.background = element_rect(colour = "black")) + 
+  labs(title = "Firearm Mortality Rate by State")
+
+# Plot US map for gun control laws
+plot_gun_law <- plot_usmap(data = firearm_df, values = "gun_law", color = "orange", labels = FALSE) + 
+  scale_fill_manual(values = c("#F0F0F0", "#000000", "#404040", "#808080","#C0C0C0"),
+                    name = "Gun Control",
+                    breaks = unique(firearm_df$gun_law)) + 
+  theme(legend.position = "bottom",
+        panel.background = element_rect(colour = "black"),
+        legend.key.size = unit(0.1, "cm")) + 
+  labs(title = "Gun Control Laws by State")
+
+# Arrange plots side by side
+grid.arrange(plot_firearm, plot_gun_law, ncol = 2)
+
+```
+
+The heat map shows that the states with the most strictest guns laws have a lower mortality rates.
+
+
+## Conclusion
+
+In this story, we aim to explore the impact of stricter firearm control laws on reduce firearm mortality rates. Through correlating strict firearm control laws across states with their respective firearm mortality rates and visualizing the data via a heat map, we observe a notable trend: As gun control laws tighten, firearm mortality rates generally decreases.
+
+
+```{r}
+# Calculate the average firearm mortality rate
+average_rate <- mean(firearm_df$firearm_mortality_rate)
+
+
+# Reorder the factor levels of gun_law
+firearm_df$gun_law <- factor(firearm_df$gun_law, levels = c("Very Strict", "Strict", "Moderate", "Loose", "Very loose"))
+
+# Create the scatter plot
+ggplot(firearm_df, aes(x = gun_law, y = firearm_mortality_rate, label = state)) +
+  geom_point(aes(color = ifelse(firearm_mortality_rate > average_rate,  "Above Average", "Below Average")), size = 1) +
+  geom_text(size = 2, hjust = -0.5) +  
+  scale_color_manual(values = c( "red", "grey")) +
+  labs(x = "Gun Control Laws", y = "Firearm Mortality Rate", title = "Firearm Mortality Rate vs. Gun Control Laws") +
+  geom_hline(yintercept = average_rate, linetype = "dotted") + 
+  theme_minimal() +
+  guides(color = guide_legend(title = "Mortality Rate", 
+                              )) 
+```
+
+The national average for firearm mortality stands at 15.5 per 100,000 persons.
+
+The above graph shows that:
+
+- States characterized by very strict gun control laws consistently have firearm mortality rates below the national average.
+
+- Conversely, over 70% of states categorized as having lenient gun control laws surpass the national average in firearm mortality rates. 
+
+- Moreover, Off of the 21 states in the US that have firearm mortality rates above the national average, 16 states have very loose gun control laws.
+
+Although it's important to consider other factors that could contribute to lower mortality rates in these states, the data suggests that stricter gun control laws correspond to lower firearm mortality rates. 
+
+
+
+---
