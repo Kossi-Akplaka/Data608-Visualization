@@ -1,0 +1,251 @@
+Minerals,Import dependency,Countries,Relationship,Net_import_reliance,Year
+Aluminum,High Dependency,Canada,Ally,47,2019
+Aluminum,High Dependency,Canada,Ally,38,2020
+Aluminum,High Dependency,Canada,Ally,40,2021
+Aluminum,High Dependency,Canada,Ally,52,2022
+Aluminum,High Dependency,Canada,Ally,44,2023
+Antimony,High Dependency,Italy,Ally,84,2019
+Antimony,High Dependency,Italy,Ally,84,2020
+Antimony,High Dependency,Italy,Ally,86,2021
+Antimony,High Dependency,Italy,Ally,84,2022
+Antimony,High Dependency,Italy,Ally,82,2023
+Arsenic,Total Dependency,China,Competitor,100,2019
+Arsenic,Total Dependency,China,Competitor,100,2020
+Arsenic,Total Dependency,China,Competitor,100,2021
+Arsenic,Total Dependency,China,Competitor,100,2022
+Arsenic,Total Dependency,China,Competitor,100,2023
+Barite,High Dependency,India,Neutral,86,2019
+Barite,High Dependency,India,Neutral,75,2020
+Barite,High Dependency,India,Neutral,75,2021
+Barite,High Dependency,India,Neutral,75,2022
+Barite,High Dependency,India,Neutral,75,2023
+Beryllium,Low Dependency,Kazakhstan,Neutral,4,2019
+Beryllium,Low Dependency,Kazakhstan,Neutral,16,2020
+Beryllium,Low Dependency,Kazakhstan,Neutral,11,2021
+Beryllium,Low Dependency,Kazakhstan,Neutral,6,2022
+Beryllium,Low Dependency,Kazakhstan,Neutral,0,2023
+Bismuth,Total Dependency,China,Competitor,95,2019
+Bismuth,Total Dependency,China,Competitor,93,2020
+Bismuth,Total Dependency,China,Competitor,92,2021
+Bismuth,Total Dependency,China,Competitor,97,2022
+Bismuth,Total Dependency,China,Competitor,94,2023
+Cerium,Total Dependency,China,Competitor,100,2019
+Cerium,Total Dependency,China,Competitor,100,2020
+Cerium,Total Dependency,China,Competitor,95,2021
+Cerium,Total Dependency,China,Competitor,95,2022
+Cerium,Total Dependency,China,Competitor,95,2023
+Cesium,Total Dependency,China,Competitor,100,2019
+Cesium,Total Dependency,China,Competitor,100,2020
+Cesium,Total Dependency,China,Competitor,100,2021
+Cesium,Total Dependency,China,Competitor,100,2022
+Cesium,Total Dependency,China,Competitor,100,2023
+Chromium,High Dependency,South Africa,Neutral,74,2019
+Chromium,High Dependency,South Africa,Neutral,73,2020
+Chromium,High Dependency,South Africa,Neutral,80,2021
+Chromium,High Dependency,South Africa,Neutral,84,2022
+Chromium,High Dependency,South Africa,Neutral,74,2023
+Cobalt,High Dependency,Norway,Ally,78,2019
+Cobalt,High Dependency,Norway,Ally,76,2020
+Cobalt,High Dependency,Norway,Ally,73,2021
+Cobalt,High Dependency,Norway,Ally,73,2022
+Cobalt,High Dependency,Norway,Ally,67,2023
+Dysprosium,Total Dependency,China,Competitor,100,2019
+Dysprosium,Total Dependency,China,Competitor,100,2020
+Dysprosium,Total Dependency,China,Competitor,95,2021
+Dysprosium,Total Dependency,China,Competitor,95,2022
+Dysprosium,Total Dependency,China,Competitor,95,2023
+Erbium,Total Dependency,China,Competitor,100,2019
+Erbium,Total Dependency,China,Competitor,100,2020
+Erbium,Total Dependency,China,Competitor,95,2021
+Erbium,Total Dependency,China,Competitor,95,2022
+Erbium,Total Dependency,China,Competitor,95,2023
+Europium,Total Dependency,China,Competitor,100,2019
+Europium,Total Dependency,China,Competitor,100,2020
+Europium,Total Dependency,China,Competitor,95,2021
+Europium,Total Dependency,China,Competitor,95,2022
+Europium,Total Dependency,China,Competitor,95,2023
+Fluorspar,Total Dependency,Mexico,Ally,100,2019
+Fluorspar,Total Dependency,Mexico,Ally,100,2020
+Fluorspar,Total Dependency,Mexico,Ally,100,2021
+Fluorspar,Total Dependency,Mexico,Ally,100,2022
+Fluorspar,Total Dependency,Mexico,Ally,100,2023
+Gadolinium,Total Dependency,China,Competitor,100,2019
+Gadolinium,Total Dependency,China,Competitor,100,2020
+Gadolinium,Total Dependency,China,Competitor,95,2021
+Gadolinium,Total Dependency,China,Competitor,95,2022
+Gadolinium,Total Dependency,China,Competitor,95,2023
+Gallium,Total Dependency,Japan,Ally,100,2019
+Gallium,Total Dependency,Japan,Ally,100,2020
+Gallium,Total Dependency,Japan,Ally,100,2021
+Gallium,Total Dependency,Japan,Ally,100,2022
+Gallium,Total Dependency,Japan,Ally,100,2023
+Germanium,High Dependency,China,Competitor,50,2019
+Germanium,High Dependency,China,Competitor,50,2020
+Germanium,High Dependency,China,Competitor,50,2021
+Germanium,High Dependency,China,Competitor,50,2022
+Germanium,High Dependency,China,Competitor,50,2023
+Graphite ,Total Dependency,China,Competitor,100,2019
+Graphite ,Total Dependency,China,Competitor,100,2020
+Graphite ,Total Dependency,China,Competitor,100,2021
+Graphite ,Total Dependency,China,Competitor,100,2022
+Graphite ,Total Dependency,China,Competitor,100,2023
+Hafnium,Low Dependency,South Africa,Neutral,0,2019
+Hafnium,Low Dependency,South Africa,Neutral,25,2020
+Hafnium,Low Dependency,South Africa,Neutral,25,2021
+Hafnium,Low Dependency,South Africa,Neutral,50,2022
+Hafnium,Low Dependency,South Africa,Neutral,25,2023
+Holmium,Total Dependency,China,Competitor,100,2019
+Holmium,Total Dependency,China,Competitor,100,2020
+Holmium,Total Dependency,China,Competitor,95,2021
+Holmium,Total Dependency,China,Competitor,95,2022
+Holmium,Total Dependency,China,Competitor,95,2023
+Indium,Low Dependency,Republic of Korea,Ally,34,2019
+Indium,Low Dependency,Republic of Korea,Ally,34,2020
+Indium,Low Dependency,Republic of Korea,Ally,35,2021
+Indium,Low Dependency,Republic of Korea,Ally,31,2022
+Indium,Low Dependency,Republic of Korea,Ally,37,2023
+Iridium,Low Dependency,Russia,Competitor,34,2019
+Iridium,Low Dependency,Russia,Competitor,34,2020
+Iridium,Low Dependency,Russia,Competitor,35,2021
+Iridium,Low Dependency,Russia,Competitor,31,2022
+Iridium,Low Dependency,Russia,Competitor,37,2023
+Lanthanum,Total Dependency,China,Competitor,100,2019
+Lanthanum,Total Dependency,China,Competitor,100,2020
+Lanthanum,Total Dependency,China,Competitor,95,2021
+Lanthanum,Total Dependency,China,Competitor,95,2022
+Lanthanum,Total Dependency,China,Competitor,95,2023
+Lithium,Low Dependency,Argentina,Ally,25,2019
+Lithium,Low Dependency,Argentina,Ally,50,2020
+Lithium,Low Dependency,Argentina,Ally,25,2021
+Lithium,Low Dependency,Argentina,Ally,25,2022
+Lithium,Low Dependency,Argentina,Ally,25,2023
+Lutetium,Total Dependency,China,Competitor,100,2019
+Lutetium,Total Dependency,China,Competitor,100,2020
+Lutetium,Total Dependency,China,Competitor,95,2021
+Lutetium,Total Dependency,China,Competitor,95,2022
+Lutetium,Total Dependency,China,Competitor,95,2023
+Magnesium,Low Dependency,Turkey,Ally,25,2019
+Magnesium,Low Dependency,Turkey,Ally,25,2020
+Magnesium,Low Dependency,Turkey,Ally,25,2021
+Magnesium,Low Dependency,Turkey,Ally,50,2022
+Magnesium,Low Dependency,Turkey,Ally,50,2023
+Manganese,Total Dependency,Gabon,Neutral,100,2019
+Manganese,Total Dependency,Gabon,Neutral,100,2020
+Manganese,Total Dependency,Gabon,Neutral,100,2021
+Manganese,Total Dependency,Gabon,Neutral,100,2022
+Manganese,Total Dependency,Gabon,Neutral,100,2023
+Neodymium,Total Dependency,China,Competitor,100,2019
+Neodymium,Total Dependency,China,Competitor,100,2020
+Neodymium,Total Dependency,China,Competitor,95,2021
+Neodymium,Total Dependency,China,Competitor,95,2022
+Neodymium,Total Dependency,China,Competitor,95,2023
+Nickel,High Dependency,Canada,Ally,49,2019
+Nickel,High Dependency,Canada,Ally,46,2020
+Nickel,High Dependency,Canada,Ally,49,2021
+Nickel,High Dependency,Canada,Ally,54,2022
+Nickel,High Dependency,Canada,Ally,57,2023
+Niobium,Total Dependency,Australia,Ally,100,2019
+Niobium,Total Dependency,Australia,Ally,100,2020
+Niobium,Total Dependency,Australia,Ally,100,2021
+Niobium,Total Dependency,Australia,Ally,100,2022
+Niobium,Total Dependency,Australia,Ally,100,2023
+Palladium,Low Dependency,Russia,Competitor,34,2019
+Palladium,Low Dependency,Russia,Competitor,34,2020
+Palladium,Low Dependency,Russia,Competitor,35,2021
+Palladium,Low Dependency,Russia,Competitor,31,2022
+Palladium,Low Dependency,Russia,Competitor,37,2023
+Platinum,High Dependency,Canada,Ally,49,2019
+Platinum,High Dependency,Canada,Ally,46,2020
+Platinum,High Dependency,Canada,Ally,49,2021
+Platinum,High Dependency,Canada,Ally,54,2022
+Platinum,High Dependency,Canada,Ally,57,2023
+Praseodymium,Total Dependency,China,Competitor,100,2019
+Praseodymium,Total Dependency,China,Competitor,100,2020
+Praseodymium,Total Dependency,China,Competitor,95,2021
+Praseodymium,Total Dependency,China,Competitor,95,2022
+Praseodymium,Total Dependency,China,Competitor,95,2023
+Rhodium,Low Dependency,Russia,Competitor,34,2019
+Rhodium,Low Dependency,Russia,Competitor,34,2020
+Rhodium,Low Dependency,Russia,Competitor,35,2021
+Rhodium,Low Dependency,Russia,Competitor,31,2022
+Rhodium,Low Dependency,Russia,Competitor,37,2023
+Rubidium,Total Dependency,China,Competitor,100,2019
+Rubidium,Total Dependency,China,Competitor,100,2020
+Rubidium,Total Dependency,China,Competitor,100,2021
+Rubidium,Total Dependency,China,Competitor,100,2022
+Rubidium,Total Dependency,China,Competitor,100,2023
+Ruthenium,Low Dependency,Russia,Competitor,34,2019
+Ruthenium,Low Dependency,Russia,Competitor,34,2020
+Ruthenium,Low Dependency,Russia,Competitor,35,2021
+Ruthenium,Low Dependency,Russia,Competitor,31,2022
+Ruthenium,Low Dependency,Russia,Competitor,37,2023
+Samarium,Total Dependency,China,Competitor,100,2019
+Samarium,Total Dependency,China,Competitor,100,2020
+Samarium,Total Dependency,China,Competitor,95,2021
+Samarium,Total Dependency,China,Competitor,95,2022
+Samarium,Total Dependency,China,Competitor,95,2023
+Scandium,Total Dependency,China,Competitor,100,2019
+Scandium,Total Dependency,China,Competitor,100,2020
+Scandium,Total Dependency,China,Competitor,95,2021
+Scandium,Total Dependency,China,Competitor,95,2022
+Scandium,Total Dependency,China,Competitor,95,2023
+Tantalum,Total Dependency,Australia,Ally,100,2019
+Tantalum,Total Dependency,Australia,Ally,100,2020
+Tantalum,Total Dependency,Australia,Ally,100,2021
+Tantalum,Total Dependency,Australia,Ally,100,2022
+Tantalum,Total Dependency,Australia,Ally,100,2023
+Tellurium,High Dependency,Philipines,Neutral,50,2019
+Tellurium,High Dependency,Philipines,Neutral,75,2020
+Tellurium,High Dependency,Philipines,Neutral,50,2021
+Tellurium,High Dependency,Philipines,Neutral,50,2022
+Tellurium,High Dependency,Philipines,Neutral,50,2023
+Terbium,Total Dependency,China,Competitor,100,2019
+Terbium,Total Dependency,China,Competitor,100,2020
+Terbium,Total Dependency,China,Competitor,95,2021
+Terbium,Total Dependency,China,Competitor,95,2022
+Terbium,Total Dependency,China,Competitor,95,2023
+Thulium,Total Dependency,China,Competitor,100,2019
+Thulium,Total Dependency,China,Competitor,100,2020
+Thulium,Total Dependency,China,Competitor,95,2021
+Thulium,Total Dependency,China,Competitor,95,2022
+Thulium,Total Dependency,China,Competitor,95,2023
+Tin,High Dependency,Peru,Neutral,76,2019
+Tin,High Dependency,Peru,Neutral,76,2020
+Tin,High Dependency,Peru,Neutral,81,2021
+Tin,High Dependency,Peru,Neutral,77,2022
+Tin,High Dependency,Peru,Neutral,74,2023
+Titanium,High Dependency,South Africa,Neutral,92,2019
+Titanium,High Dependency,South Africa,Neutral,89,2020
+Titanium,High Dependency,South Africa,Neutral,90,2021
+Titanium,High Dependency,South Africa,Neutral,81,2022
+Titanium,High Dependency,South Africa,Neutral,75,2023
+Tungsten,High Dependency,China,Competitor,50,2019
+Tungsten,High Dependency,China,Competitor,50,2020
+Tungsten,High Dependency,China,Competitor,50,2021
+Tungsten,High Dependency,China,Competitor,50,2022
+Tungsten,High Dependency,China,Competitor,50,2023
+Vanadium,High Dependency,Canada,Ally,65,2019
+Vanadium,High Dependency,Canada,Ally,59,2020
+Vanadium,High Dependency,Canada,Ally,61,2021
+Vanadium,High Dependency,Canada,Ally,60,2022
+Vanadium,High Dependency,Canada,Ally,58,2023
+Ytterbium,Total Dependency,China,Competitor,100,2019
+Ytterbium,Total Dependency,China,Competitor,100,2020
+Ytterbium,Total Dependency,China,Competitor,95,2021
+Ytterbium,Total Dependency,China,Competitor,95,2022
+Ytterbium,Total Dependency,China,Competitor,95,2023
+Yttrium,Total Dependency,China,Competitor,100,2019
+Yttrium,Total Dependency,China,Competitor,100,2020
+Yttrium,Total Dependency,China,Competitor,95,2021
+Yttrium,Total Dependency,China,Competitor,95,2022
+Yttrium,Total Dependency,China,Competitor,95,2023
+Zinc,High Dependency,Peru,Neutral,88,2019
+Zinc,High Dependency,Peru,Neutral,79,2020
+Zinc,High Dependency,Peru,Neutral,76,2021
+Zinc,High Dependency,Peru,Neutral,77,2022
+Zinc,High Dependency,Peru,Neutral,77,2023
+Zirconium,Low Dependency,South Africa,Neutral,0,2019
+Zirconium,Low Dependency,South Africa,Neutral,25,2020
+Zirconium,Low Dependency,South Africa,Neutral,25,2021
+Zirconium,Low Dependency,South Africa,Neutral,50,2022
+Zirconium,Low Dependency,South Africa,Neutral,25,2023
